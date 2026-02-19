@@ -23,15 +23,15 @@ const WhyChooseUs = () => {
           subtitle="What makes us different from the rest"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4 sm:px-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4 sm:px-0 mx-auto max-w-7xl">
           {whyChooseUs.map((item, index) => (
             <Card
               key={item.id}
-              className="p-0 overflow-hidden animate-on-scroll group"
+              className="p-0 overflow-hidden animate-on-scroll group h-full"
               hover={true}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="mb-0 overflow-hidden h-40 sm:h-48">
+              <div className="mb-0 overflow-hidden h-40 sm:h-48 w-full">
                 <img
                   src={getWhyChooseUsImage(item.id)}
                   alt={`${item.title} - Why choose Maven Technologies`}
