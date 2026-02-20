@@ -6,12 +6,12 @@ import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 
 // SEO Component
-import HelmetSetup from "./components/seo/HelmetSetup"; // react-helmet for SEO
+import HelmetSetup from "./components/seo/HelmetSetup";
 
 // Lazy-loaded page components
 const Home = lazy(() => import("./pages/Home"));
 const Services = lazy(() => import("./pages/ServicesPage"));
-const ServiceDetail = lazy(() => import("./components/sections/ServiceDetail")); // Correct path
+const ServiceDetail = lazy(() => import("./components/sections/ServiceDetail"));
 const WhyUs = lazy(() => import("./pages/WhyUsPage"));
 
 // Page loader spinner
@@ -24,13 +24,9 @@ const PageLoader = () => (
 function App() {
   return (
     <>
-      {/* SEO */}
       <HelmetSetup />
-
-      {/* Header */}
       <Header />
-
-      {/* Main content */}
+      
       <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -39,8 +35,7 @@ function App() {
           <Route path="/why-us" element={<WhyUs />} />
         </Routes>
       </Suspense>
-
-      {/* Footer */}
+      
       <Footer />
     </>
   );
