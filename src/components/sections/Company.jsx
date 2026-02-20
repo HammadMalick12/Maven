@@ -47,14 +47,15 @@ const WhyChooseMaven = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50 font-roboto">
       <Container>
         <SectionHeading
           title="Why Choose Maven"
           subtitle="What sets us apart from the competition"
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 max-w-4xl mx-auto px-4 sm:px-0">
+        {/* Stats Section - Keep as is */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-16 sm:mb-20 max-w-4xl mx-auto px-4 sm:px-0">
           {stats.map((stat) => (
             <div key={stat.id} className="text-center p-4 sm:p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="text-3xl sm:text-4xl font-bold text-navy-900 mb-2">{stat.value}</div>
@@ -63,45 +64,39 @@ const WhyChooseMaven = () => {
           ))}
         </div>
 
-        <div className="space-y-8 sm:space-y-12">
+        {/* Principles Section - Following Culture Pattern */}
+        <div className="space-y-16 sm:space-y-20">
           {principles.map((principle, index) => (
             <div
               key={principle.id}
-              className="flex flex-col md:flex-row gap-6 sm:gap-8 items-center animate-on-scroll"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center"
             >
-              <div className="md:max-w-2xl w-full px-4 sm:px-0">
-                <div className="flex items-start gap-3 sm:gap-4">
-                  <div
-                    className="w-1 sm:w-1.5 h-12 sm:h-14 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: "#000080" }}
-                  ></div>
-                  <div className="flex-1">
-                    <h3 className="font-poppins text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4" style={{ color: "#000080" }}>
-                      {principle.title}
-                    </h3>
-                    <p className="text-gray-900 text-base sm:text-lg leading-relaxed text-justify">
-                      {principle.description}
-                    </p>
-                  </div>
-                </div>
+              {/* Image on Left - Same as Culture's first row */}
+              <div className="flex justify-center order-1 md:order-1">
+                <img
+                  src={getPrincipleImage(principle.id)}
+                  alt={principle.title}
+                  className="w-full max-w-xs sm:max-w-sm md:max-w-md h-40 sm:h-48 md:h-56 object-cover rounded-lg shadow-lg"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
 
-              <div className="md:w-2/5 w-full px-4 sm:px-0">
-                <div className="overflow-hidden rounded-xl shadow-lg">
-                  <img
-                    src={getPrincipleImage(principle.id)}
-                    alt={principle.title}
-                    className="w-full h-56 sm:h-64 md:h-80 object-cover hover:scale-110 transition-transform duration-700"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+              {/* Text on Right - Same as Culture's text section */}
+              <div className="order-2 md:order-2 text-center md:text-left px-4 sm:px-0">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+                  <span className="text-black">{principle.title.split(' ')[0]}</span>{" "}
+                  <span style={{ color: "#000080" }}>{principle.title.split(' ').slice(1).join(' ')}</span>
+                </h2>
+                <p className="text-black text-base sm:text-lg md:text-xl leading-relaxed text-justify">
+                  {principle.description}
+                </p>
               </div>
             </div>
           ))}
         </div>
 
+        {/* CTA Section - Keep as is but adjust spacing */}
         <div className="mt-16 sm:mt-20 text-center px-4 sm:px-0">
           <div className="bg-gradient-to-r from-navy-700 to-blue-600 rounded-2xl p-8 sm:p-12 text-white">
             <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Ready to Work With Us?</h3>
