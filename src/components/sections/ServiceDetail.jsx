@@ -177,7 +177,6 @@ const ServiceDetail = () => {
           </div>
         </Container>
       </section>
-      <Footer />
     </>
   );
 };
